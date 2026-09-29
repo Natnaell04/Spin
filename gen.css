@@ -1,0 +1,269 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f3f3f3;
+    color: #222;
+}
+
+.game {
+    width: 100%;
+    max-width: 750px;
+
+    text-align: center;
+
+    padding: 30px 20px;
+}
+
+.title {
+    font-size: 40px;
+    font-weight: 800;
+
+    margin-bottom: 8px;
+
+    color: #222;
+}
+
+.subtitle {
+    font-size: 14px;
+
+    letter-spacing: 2px;
+
+    color: #666;
+
+    margin-bottom: 25px;
+}
+
+.wheel-container {
+    position: relative;
+
+    width: min(600px, 90vw);
+    height: min(600px, 90vw);
+
+    margin: 0 auto 30px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#wheel {
+    width: 100%;
+    height: 100%;
+
+    border-radius: 50%;
+
+    filter: drop-shadow(0 8px 12px rgba(0, 0, 0, 0.25));
+}
+
+.pointer {
+    position: absolute;
+
+    top: -5px;
+    left: 50%;
+
+    transform: translateX(-50%);
+
+    width: 0;
+    height: 0;
+
+    border-left: 22px solid transparent;
+    border-right: 22px solid transparent;
+    border-top: 42px solid #222;
+
+    z-index: 10;
+}
+
+.spin-button {
+    position: absolute;
+
+    width: 125px;
+    height: 125px;
+
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    z-index: 5;
+
+    cursor: pointer;
+
+    background: #222;
+
+    border: 6px solid white;
+
+    color: white;
+
+    font-size: 21px;
+    font-weight: 800;
+
+    transition: transform 0.2s ease;
+}
+
+.spin-button:hover {
+    transform: scale(1.06);
+}
+
+.spin-button:active {
+    transform: scale(0.96);
+}
+
+.spin-button.disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.result {
+    max-width: 550px;
+
+    margin: 0 auto;
+
+    padding: 20px 30px;
+
+    border-radius: 12px;
+
+    background: white;
+
+    border: 1px solid #ddd;
+
+    box-shadow:
+        0 5px 15px rgba(0, 0, 0, 0.08);
+
+    transition: 0.3s ease;
+}
+
+.result-title {
+    font-size: 13px;
+
+    letter-spacing: 2px;
+
+    color: #777;
+
+    margin-bottom: 8px;
+}
+
+.result-value {
+    font-size: 28px;
+
+    font-weight: 800;
+
+    color: #222;
+
+    min-height: 34px;
+}
+
+.result.free-spin {
+    animation: freeSpinWin 1.2s ease;
+
+    border-color: #333;
+}
+
+.result.surprise {
+    animation: surpriseWin 1.2s ease;
+
+    border-color: #555;
+}
+
+.result.thank-you {
+    animation: thankYouWin 0.8s ease;
+}
+
+@keyframes freeSpinWin {
+
+    0% {
+        transform: scale(0.7);
+        opacity: 0;
+    }
+
+    50% {
+        transform: scale(1.06);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes surpriseWin {
+
+    0% {
+        transform: rotate(-3deg) scale(0.7);
+        opacity: 0;
+    }
+
+    25% {
+        transform: rotate(3deg) scale(1.06);
+    }
+
+    50% {
+        transform: rotate(-3deg) scale(1.03);
+    }
+
+    75% {
+        transform: rotate(3deg) scale(1.01);
+    }
+
+    100% {
+        transform: rotate(0) scale(1);
+        opacity: 1;
+    }
+}
+
+@keyframes thankYouWin {
+
+    0% {
+        transform: scale(0.9);
+        opacity: 0;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+@media (max-width: 600px) {
+
+    .game {
+        padding: 20px 10px;
+    }
+
+    .title {
+        font-size: 29px;
+    }
+
+    .subtitle {
+        font-size: 11px;
+    }
+
+    .spin-button {
+        width: 100px;
+        height: 100px;
+
+        font-size: 18px;
+    }
+
+    .pointer {
+        border-left-width: 17px;
+        border-right-width: 17px;
+        border-top-width: 34px;
+    }
+
+    .result-value {
+        font-size: 22px;
+    }
+}

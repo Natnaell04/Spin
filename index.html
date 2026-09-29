@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Paysso Lucky Draw</title>
+    <link rel="stylesheet" href="./gen.css">
+</head>
+
+<body>
+
+    <main class="game">
+
+        <h1 class="title">PAYSSO LUCKY DRAW</h1>
+
+        <p class="subtitle">
+            SPIN THE WHEEL • TEST YOUR LUCK
+        </p>
+
+        <div class="wheel-container">
+
+            <div class="pointer"></div>
+
+            <canvas id="wheel" width="600" height="600">
+            </canvas>
+
+            <button class="spin-button" id="spinButton">
+                SPIN
+            </button>
+
+        </div>
+
+        <div class="result" id="resultBox">
+
+            <div class="result-title">
+                WHAT DID YOU WIN?
+            </div>
+
+            <div class="result-value" id="result">
+                SPIN THE WHEEL!
+            </div>
+
+        </div>
+
+    </main>
+
+    <script type="module" src="/src/main.ts"></script>
+
+</body>
+
+</html>
